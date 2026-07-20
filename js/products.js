@@ -14,18 +14,18 @@
 const PRODUCTS = [
   { id: 1,  name: 'Red Apples',        category: 'fruits',     price: 2.99, image: 'images/apple.jpg', description: 'Crisp, sweet red apples, perfect for snacking or baking.' },
   { id: 2,  name: 'Bananas',           category: 'fruits',     price: 1.49, image: 'images/banana.jpg', description: 'Ripe yellow bananas, a great source of potassium.' },
-  { id: 3,  name: 'Strawberries',      category: 'fruits',     price: 3.99, emoji: '🍓', description: 'Fresh, juicy strawberries picked at peak ripeness.' },
-  { id: 4,  name: 'Carrots',           category: 'vegetables', price: 1.29, emoji: '🥕', description: 'Crunchy orange carrots, great for salads and cooking.' },
-  { id: 5,  name: 'Broccoli',          category: 'vegetables', price: 2.49, emoji: '🥦', description: 'Fresh green broccoli, packed with vitamins.' },
-  { id: 6,  name: 'Tomatoes',          category: 'vegetables', price: 2.79, emoji: '🍅', description: 'Ripe red tomatoes, perfect for salads and sauces.' },
-  { id: 7,  name: 'Whole Milk',        category: 'dairy',      price: 3.49, image: 'images/yogurt.jpg', description: 'Fresh whole milk, 1 gallon.' },
-  { id: 8,  name: 'Cheddar Cheese',    category: 'dairy',      price: 4.99, emoji: '🧀', description: 'Sharp cheddar cheese block, aged for rich flavor.' },
-  { id: 9,  name: 'Eggs (Dozen)',      category: 'dairy',      price: 3.29, emoji: '🥚', description: 'Farm-fresh large eggs, one dozen.' },
-  { id: 10, name: 'Sourdough Bread',   category: 'bakery',     price: 4.49, emoji: '🍞', description: 'Freshly baked sourdough loaf with a crisp crust.' },
-  { id: 11, name: 'Croissants (4pk)',  category: 'bakery',     price: 5.99, emoji: '🥐', description: 'Buttery, flaky croissants, baked fresh daily.' },
-  { id: 12, name: 'White Rice (2kg)',  category: 'pantry',     price: 4.29, emoji: '🍚', description: 'Long-grain white rice, a pantry essential.' },
-  { id: 13, name: 'Pasta (500g)',      category: 'pantry',     price: 1.99, emoji: '🍝', description: 'Classic durum wheat pasta.' },
-  { id: 14, name: 'Olive Oil (1L)',    category: 'pantry',     price: 8.99, emoji: '🫒', description: 'Extra virgin olive oil, cold-pressed.' }
+  { id: 3,  name: 'Strawberries',      category: 'fruits',     price: 3.99, image: 'images/strawberry.jpg', description: 'Fresh, juicy strawberries picked at peak ripeness.' },
+  { id: 4,  name: 'Carrots',           category: 'vegetables', price: 1.29, image: 'images/carrots.jpg', description: 'Crunchy orange carrots, great for salads and cooking.' },
+  { id: 5,  name: 'Broccoli',          category: 'vegetables', price: 2.49, image: 'images/broccoli.jpg', description: 'Fresh green broccoli, packed with vitamins.' },
+  { id: 6,  name: 'Tomatoes',          category: 'vegetables', price: 2.79, image: 'images/tomatoes.jpg', description: 'Ripe red tomatoes, perfect for salads and sauces.' },
+  { id: 7,  name: 'Whole Milk',        category: 'dairy',      price: 3.49, image: 'images/milk.jpg', description: 'Fresh whole milk, 1 gallon.' },
+  { id: 8,  name: 'Cheddar Cheese',    category: 'dairy',      price: 4.99, image: 'images/cheese.jpg', description: 'Sharp cheddar cheese block, aged for rich flavor.' },
+  { id: 9,  name: 'Eggs (Dozen)',      category: 'dairy',      price: 3.29, image: 'images/eggs.jpg', description: 'Farm-fresh large eggs, one dozen.' },
+  { id: 10, name: 'Sourdough Bread',   category: 'bakery',     price: 4.49, image: 'images/bread.jpg', description: 'Freshly baked sourdough loaf with a crisp crust.' },
+  { id: 11, name: 'Croissants (4pk)',  category: 'bakery',     price: 5.99, image: 'images/croissant.jpg', description: 'Buttery, flaky croissants, baked fresh daily.' },
+  { id: 12, name: 'White Rice (2kg)',  category: 'pantry',     price: 4.29, image: 'images/rice.jpg', description: 'Long-grain white rice, a pantry essential.' },
+  { id: 13, name: 'Pasta (500g)',      category: 'pantry',     price: 1.99, image: 'images/spaghetti.jpg', description: 'Classic durum wheat pasta.' },
+  { id: 14, name: 'Olive Oil (1L)',    category: 'pantry',     price: 8.99, image: 'images/olives.jpg', description: 'Extra virgin olive oil, cold-pressed.' }
 ];
 
 /* ---------- Figure out the correct relative path based on current folder ---------- */
