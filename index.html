@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FreshCart - Grocery Food Market</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== NAVIGATION BAR ===== -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">🥦 FreshCart</a>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="pages/products.html">Products</a>
+        <a href="pages/about.html">About</a>
+        <a href="pages/contact.html">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="pages/cart.html" class="cart-link">
+          🛒 Cart (<span id="cart-count">0</span>)
+        </a>
+        <!-- This span changes depending on whether someone is logged in -->
+        <span id="auth-link"></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main>
+
+    <!-- Hero / banner section -->
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Fresh Groceries, Delivered to Your Door</h1>
+        <p>Shop the best quality fruits, vegetables, and pantry staples at honest prices.</p>
+        <a href="pages/products.html" class="btn btn-primary">Shop Now</a>
+      </div>
+    </section>
+
+    <!-- Feature highlights -->
+    <section class="features">
+      <div class="feature-card">
+        <h3>🚚 Fast Delivery</h3>
+        <p>Get your groceries delivered quickly and safely.</p>
+      </div>
+      <div class="feature-card">
+        <h3>🌿 Fresh Produce</h3>
+        <p>We source only the freshest fruits and vegetables.</p>
+      </div>
+      <div class="feature-card">
+        <h3>💰 Great Prices</h3>
+        <p>Quality groceries that don't break the bank.</p>
+      </div>
+    </section>
+
+    <!-- Preview of a few products, pulled in with JavaScript -->
+    <section class="home-products">
+      <h2>Popular Products</h2>
+      <div id="home-product-list" class="product-grid">
+        <!-- Product cards will be inserted here by JavaScript -->
+      </div>
+      <a href="pages/products.html" class="btn btn-secondary">View All Products</a>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h4>FreshCart</h4>
+        <p>Your trusted online grocery food market.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+        <a href="pages/products.html">Products</a>
+        <a href="pages/about.html">About Us</a>
+        <a href="pages/contact.html">Contact Us</a>
+      </div>
+      <div class="footer-column">
+        <h4>Account</h4>
+        <a href="pages/login.html">Login</a>
+        <a href="pages/signup.html">Sign Up</a>
+      </div>
+    </div>
+    <p class="footer-bottom">&copy; 2026 FreshCart. University Project - Not a real store.</p>
+  </footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script src="js/main.js"></script>
+  <script src="js/products.js"></script>
+</body>
+</html>

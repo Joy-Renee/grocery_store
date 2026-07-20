@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmed - FreshCart</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="logo">🥦 FreshCart</a>
+      <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="cart.html" class="cart-link">🛒 Cart (<span id="cart-count">0</span>)</a>
+        <span id="auth-link"></span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="success-section">
+      <div class="success-card">
+        <div class="success-icon">✅</div>
+        <h1>Order Placed Successfully!</h1>
+        <p>Thank you for shopping with FreshCart. Your order is being prepared.</p>
+        <!-- JavaScript fills in a generated order number here -->
+        <p id="order-number" class="order-number"></p>
+        <a href="../index.html" class="btn btn-primary">Back to Home</a>
+        <a href="products.html" class="btn btn-secondary">Continue Shopping</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h4>FreshCart</h4>
+        <p>Your trusted online grocery food market.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+        <a href="products.html">Products</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+      <div class="footer-column">
+        <h4>Account</h4>
+        <a href="login.html">Login</a>
+        <a href="signup.html">Sign Up</a>
+      </div>
+    </div>
+    <p class="footer-bottom">&copy; 2026 FreshCart. University Project - Not a real store.</p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/checkout.js"></script>
+</body>
+</html>

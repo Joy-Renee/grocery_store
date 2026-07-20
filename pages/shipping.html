@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shipping Information - FreshCart</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="logo">🥦 FreshCart</a>
+      <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="cart.html" class="cart-link">🛒 Cart (<span id="cart-count">0</span>)</a>
+        <span id="auth-link"></span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="form-section">
+      <div class="form-card">
+        <h1>Shipping Information</h1>
+
+        <form id="shipping-form">
+          <label for="ship-name">Full Name</label>
+          <input type="text" id="ship-name" required>
+
+          <label for="ship-address">Street Address</label>
+          <input type="text" id="ship-address" required>
+
+          <label for="ship-city">City</label>
+          <input type="text" id="ship-city" required>
+
+          <label for="ship-postal">Postal Code</label>
+          <input type="text" id="ship-postal" required>
+
+          <label for="ship-phone">Phone Number</label>
+          <input type="tel" id="ship-phone" required>
+
+          <p id="shipping-message" class="form-message"></p>
+
+          <button type="submit" class="btn btn-primary">Continue to Checkout</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h4>FreshCart</h4>
+        <p>Your trusted online grocery food market.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+        <a href="products.html">Products</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+      <div class="footer-column">
+        <h4>Account</h4>
+        <a href="login.html">Login</a>
+        <a href="signup.html">Sign Up</a>
+      </div>
+    </div>
+    <p class="footer-bottom">&copy; 2026 FreshCart. University Project - Not a real store.</p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/shipping.js"></script>
+</body>
+</html>
