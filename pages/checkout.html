@@ -36,17 +36,41 @@
       <div class="form-card">
         <h3>Payment Details (Simulation Only)</h3>
         <form id="checkout-form">
-          <label for="card-name">Name on Card</label>
-          <input type="text" id="card-name" required>
+          <div class="payment-options">
+            <label class="payment-option">
+              <input type="radio" name="payment" value="mpesa" checked>
+              M-Pesa
+            </label>
 
-          <label for="card-number">Card Number</label>
-          <input type="text" id="card-number" placeholder="1234 5678 9012 3456" maxlength="19" required>
+            <label class="payment-option">
+              <input type="radio" name="payment" value="card">
+              Credit/Debit Card
+            </label>
 
-          <label for="card-expiry">Expiry (MM/YY)</label>
-          <input type="text" id="card-expiry" placeholder="MM/YY" maxlength="5" required>
+            <label class="payment-option">
+              <input type="radio" name="payment" value="cash">
+              Cash on Delivery
+            </label>
+          </div>
 
-          <label for="card-cvv">CVV</label>
-          <input type="text" id="card-cvv" maxlength="4" required>
+          <div id="mpesa-fields" class="payment-fields">
+            <label for="mpesa-phone">M-Pesa Phone Number</label>
+            <input type="text" id="mpesa-phone" placeholder="07XXXXXXXX">
+          </div>
+
+          <div id="card-fields" class="payment-fields hidden">
+            <label for="card-name">Name on Card</label>
+            <input type="text" id="card-name" required>
+
+            <label for="card-number">Card Number</label>
+            <input type="text" id="card-number" placeholder="1234 5678 9012 3456" maxlength="19" required>
+
+            <label for="card-expiry">Expiry (MM/YY)</label>
+            <input type="text" id="card-expiry" placeholder="MM/YY" maxlength="5" required>
+
+            <label for="card-cvv">CVV</label>
+            <input type="text" id="card-cvv" maxlength="4" required>
+          </div>
 
           <p id="checkout-message" class="form-message"></p>
 
