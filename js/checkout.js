@@ -89,8 +89,57 @@ function renderOrderSuccess() {
   orderNumberEl.textContent = orderNumber ? 'Order Number: ' + orderNumber : '';
 }
 
+/* ---------- Order Rating ---------- */
+function setupOrderRating() {
+  const starContainer = document.getElementById('star-rating');
+  if (!starContainer) return; // not on the order-success page
+
+  const stars = starContainer.querySelectorAll('.star');
+  const orderNumber = getData('lastOrderNumber', null);
+
+  // If this order was already rated, show the saved rating instead of stars
+  const ratings = getData('orderRatings', {});
+  if (orderNumber && ratings[orderNumber]) {
+    highlightStars(stars, ratings[orderNumber]);
+    showRatingMessage('Thanks! You rated this order ' + ratings[orderNumber] + ' star(s).');
+    return;
+  }
+
+  stars.forEach(function (star) {
+    star.addEventListener('click', function () {
+      const value = parseInt(star.dataset.value, 10);
+      highlightStars(stars, value);
+
+      if (orderNumber) {
+        ratings[orderNumber] = value;
+        setData('orderRatings', ratings);
+      }
+
+      showRatingMessage('Thanks for your feedback! You rated this order ' + value + ' star(s).');
+    });
+  });
+}
+
+function highlightStars(stars, value) {
+  stars.forEach(function (star) {
+    const starValue = parseInt(star.dataset.value, 10);
+    star.classList.toggle('selected', starValue <= value);
+  });
+}
+
+function showRatingMessage(text) {
+  const msg = document.getElementById('rating-message');
+  if (msg) {
+    msg.textContent = text;
+    msg.className = 'form-message success';
+  }
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   renderCheckoutSummary();
   setupCheckoutForm();
   renderOrderSuccess();
+  setupOrderRating();
+  
 });
+

@@ -648,6 +648,24 @@ img {
 .success-card .btn {
   margin: 8px;
 }
+.rating-section {
+  margin: 24px 0;
+}
+
+.star-rating {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.star {
+  color: #ccc;
+  transition: color 0.15s ease;
+}
+
+.star:hover,
+.star.selected {
+  color: #f5a623;
+}
 
 /* =========================================================
    STATIC CONTENT (About page)
