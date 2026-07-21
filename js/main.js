@@ -102,7 +102,7 @@ function getCartTotal() {
 
 /* ---------- Small formatting helper ---------- */
 function formatPrice(amount) {
-  return '$' + amount.toFixed(2);
+  return 'Ksh' + amount.toFixed(2);
 }
 
 /* ---------- NAVBAR: cart count + login/logout link ---------- */
