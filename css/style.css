@@ -608,6 +608,30 @@ img {
   padding-top: 10px;
 }
 
+/* ---- Payment method options ---- */
+.payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.payment-option input[type="radio"] {
+  margin: 0;
+}
+
+.payment-fields.hidden {
+  display: none;
+}
+
 /* =========================================================
    ORDER SUCCESS PAGE
    ========================================================= */

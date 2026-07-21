@@ -49,6 +49,27 @@ function showCheckoutMessage(text, isError) {
   msg.className = 'form-message ' + (isError ? 'error' : 'success');
 }
 
+/* ---------- Payment method toggle ---------- */
+function setupPaymentToggle() {
+  const paymentRadios = document.querySelectorAll('input[name="payment"]');
+  if (paymentRadios.length === 0) return; // not on the checkout page
+
+  const mpesaFields = document.getElementById('mpesa-fields');
+  const cardFields = document.getElementById('card-fields');
+
+  function updatePaymentFields() {
+    const selected = document.querySelector('input[name="payment"]:checked').value;
+    mpesaFields.classList.toggle('hidden', selected !== 'mpesa');
+    cardFields.classList.toggle('hidden', selected !== 'card');
+  }
+
+  paymentRadios.forEach(function (radio) {
+    radio.addEventListener('change', updatePaymentFields);
+  });
+
+  updatePaymentFields(); // set correct initial state on page load
+}
+
 function setupCheckoutForm() {
   const checkoutForm = document.getElementById('checkout-form');
   if (!checkoutForm) return;
@@ -62,16 +83,28 @@ function setupCheckoutForm() {
       return;
     }
 
-    // Basic simulated validation - this is NOT real payment processing
-    const cardNumber = document.getElementById('card-number').value.replace(/\s/g, '');
-    if (cardNumber.length < 12) {
-      showCheckoutMessage('Please enter a valid card number.', true);
-      return;
+    const selectedPayment = document.querySelector('input[name="payment"]:checked').value;
+
+    if (selectedPayment === 'card') {
+      const cardNumber = document.getElementById('card-number').value.replace(/\s/g, '');
+      if (cardNumber.length < 12) {
+        showCheckoutMessage('Please enter a valid card number.', true);
+        return;
+      }
+    }
+
+    if (selectedPayment === 'mpesa') {
+      const mpesaPhone = document.getElementById('mpesa-phone').value.trim();
+      if (mpesaPhone.length < 10) {
+        showCheckoutMessage('Please enter a valid M-Pesa phone number.', true);
+        return;
+      }
     }
 
     // Generate a simple fake order number based on the current time
     const orderNumber = 'FC-' + Date.now().toString().slice(-8);
     setData('lastOrderNumber', orderNumber);
+    setData('lastPaymentMethod', selectedPayment);
 
     // The order is "placed" - empty the cart
     saveCart([]);
@@ -87,59 +120,19 @@ function renderOrderSuccess() {
 
   const orderNumber = getData('lastOrderNumber', null);
   orderNumberEl.textContent = orderNumber ? 'Order Number: ' + orderNumber : '';
-}
 
-/* ---------- Order Rating ---------- */
-function setupOrderRating() {
-  const starContainer = document.getElementById('star-rating');
-  if (!starContainer) return; // not on the order-success page
-
-  const stars = starContainer.querySelectorAll('.star');
-  const orderNumber = getData('lastOrderNumber', null);
-
-  // If this order was already rated, show the saved rating instead of stars
-  const ratings = getData('orderRatings', {});
-  if (orderNumber && ratings[orderNumber]) {
-    highlightStars(stars, ratings[orderNumber]);
-    showRatingMessage('Thanks! You rated this order ' + ratings[orderNumber] + ' star(s).');
-    return;
-  }
-
-  stars.forEach(function (star) {
-    star.addEventListener('click', function () {
-      const value = parseInt(star.dataset.value, 10);
-      highlightStars(stars, value);
-
-      if (orderNumber) {
-        ratings[orderNumber] = value;
-        setData('orderRatings', ratings);
-      }
-
-      showRatingMessage('Thanks for your feedback! You rated this order ' + value + ' star(s).');
-    });
-  });
-}
-
-function highlightStars(stars, value) {
-  stars.forEach(function (star) {
-    const starValue = parseInt(star.dataset.value, 10);
-    star.classList.toggle('selected', starValue <= value);
-  });
-}
-
-function showRatingMessage(text) {
-  const msg = document.getElementById('rating-message');
-  if (msg) {
-    msg.textContent = text;
-    msg.className = 'form-message success';
+  // NEW: show which payment method was used
+  const paymentMethodEl = document.getElementById('payment-method');
+  const paymentMethod = getData('lastPaymentMethod', null);
+  const paymentLabels = { mpesa: 'M-Pesa', card: 'Credit/Debit Card', cash: 'Cash on Delivery' };
+  if (paymentMethodEl && paymentMethod) {
+    paymentMethodEl.textContent = 'Paid via: ' + (paymentLabels[paymentMethod] || paymentMethod);
   }
 }
 
 document.addEventListener('DOMContentLoaded', function () {
   renderCheckoutSummary();
+  setupPaymentToggle();
   setupCheckoutForm();
   renderOrderSuccess();
-  setupOrderRating();
-  
 });
-
