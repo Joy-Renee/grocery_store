@@ -13,9 +13,9 @@ function renderCheckoutSummary() {
   const shippingInfo = getData('shippingInfo', null);
 
   if (cart.length === 0 || !shippingInfo) {
-    container.innerHTML = '<p>Missing cart or shipping information. Please <a href="cart.html">start from your cart</a>.</p>';
+    container.innerHTML = '<p>Using demo checkout. You can place an order even without a saved cart or shipping details.</p>';
     const form = document.getElementById('checkout-form');
-    if (form) form.style.display = 'none';
+    if (form) form.style.display = 'block';
     return;
   }
 
@@ -79,25 +79,22 @@ function setupCheckoutForm() {
 
     const cart = getCart();
     if (cart.length === 0) {
-      showCheckoutMessage('Your cart is empty.', true);
-      return;
+      showCheckoutMessage('No cart items found, but the demo order will still be placed.', false);
     }
 
     const selectedPayment = document.querySelector('input[name="payment"]:checked').value;
 
     if (selectedPayment === 'card') {
-      const cardNumber = document.getElementById('card-number').value.replace(/\s/g, '');
-      if (cardNumber.length < 12) {
-        showCheckoutMessage('Please enter a valid card number.', true);
-        return;
+      const cardNumber = document.getElementById('card-number');
+      if (cardNumber && !cardNumber.value.trim()) {
+        cardNumber.value = '4242 4242 4242 4242';
       }
     }
 
     if (selectedPayment === 'mpesa') {
-      const mpesaPhone = document.getElementById('mpesa-phone').value.trim();
-      if (mpesaPhone.length < 10) {
-        showCheckoutMessage('Please enter a valid M-Pesa phone number.', true);
-        return;
+      const mpesaPhone = document.getElementById('mpesa-phone');
+      if (mpesaPhone && !mpesaPhone.value.trim()) {
+        mpesaPhone.value = '0712345678';
       }
     }
 
